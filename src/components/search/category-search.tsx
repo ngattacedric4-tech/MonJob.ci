@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, LayoutGrid } from "lucide-react";
 
 import type { Category } from "@/lib/constants/categories";
 import { cn } from "@/lib/utils";
@@ -11,28 +11,29 @@ type CategorySearchProps = {
 
 export function CategorySearch({ categories, selectedSector }: CategorySearchProps) {
   return (
-    <div className="space-y-4">
+    <div className="space-y-6">
       <div className="flex flex-wrap gap-2">
         <Link
           href="/"
           className={cn(
-            "inline-flex h-10 items-center rounded-lg border px-3 text-sm font-medium transition",
+            "inline-flex h-10 items-center gap-1.5 rounded-full border px-4 text-sm font-medium transition",
             !selectedSector
-              ? "border-brand-500 bg-brand-50 text-brand-700"
-              : "border-ink-200 text-ink-700 hover:border-ink-300",
+              ? "border-brand-500 bg-brand-500 text-white shadow-soft"
+              : "border-ink-200 bg-white text-ink-700 hover:border-ink-300 hover:bg-ink-50",
           )}
         >
-          Toutes les categories
+          <LayoutGrid className="h-3.5 w-3.5" />
+          Toutes
         </Link>
         {categories.map((category) => (
           <Link
             key={category.slug}
             href={`/?secteur=${category.slug}`}
             className={cn(
-              "inline-flex h-10 items-center rounded-lg border px-3 text-sm font-medium transition",
+              "inline-flex h-10 items-center rounded-full border px-4 text-sm font-medium transition",
               selectedSector === category.slug
-                ? "border-brand-500 bg-brand-50 text-brand-700"
-                : "border-ink-200 text-ink-700 hover:border-ink-300",
+                ? "border-brand-500 bg-brand-500 text-white shadow-soft"
+                : "border-ink-200 bg-white text-ink-700 hover:border-ink-300 hover:bg-ink-50",
             )}
           >
             {category.label}
@@ -45,14 +46,22 @@ export function CategorySearch({ categories, selectedSector }: CategorySearchPro
           <Link
             key={category.slug}
             href={`/opportunites?secteur=${category.slug}`}
-            className="rounded-lg border border-ink-100 bg-white p-4 transition hover:border-brand-200 hover:bg-brand-50/40"
+            className="group relative overflow-hidden rounded-2xl border border-ink-100 bg-white p-5 transition hover:-translate-y-0.5 hover:border-brand-200 hover:shadow-soft"
           >
-            <div className="flex items-start justify-between gap-3">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full bg-brand-50/0 transition-colors duration-300 group-hover:bg-brand-50"
+            />
+            <div className="relative flex items-start justify-between gap-3">
               <div className="space-y-1">
-                <p className="font-medium text-ink-900">{category.label}</p>
-                <p className="text-sm text-ink-500">{category.description}</p>
+                <p className="font-display font-semibold text-ink-900 transition-colors group-hover:text-brand-700">
+                  {category.label}
+                </p>
+                <p className="text-sm leading-relaxed text-ink-500">{category.description}</p>
               </div>
-              <ArrowRight className="mt-1 h-4 w-4 text-ink-400" />
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-ink-100 text-ink-500 transition group-hover:bg-brand-500 group-hover:text-white">
+                <ArrowRight className="h-3.5 w-3.5" />
+              </span>
             </div>
           </Link>
         ))}
@@ -60,4 +69,3 @@ export function CategorySearch({ categories, selectedSector }: CategorySearchPro
     </div>
   );
 }
-

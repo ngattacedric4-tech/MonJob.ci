@@ -18,7 +18,7 @@ export default async function OpportunitiesPage({ searchParams }: OpportunitiesP
   ]);
 
   return (
-    <div className="mx-auto max-w-6xl space-y-8 px-4 py-10 sm:px-6">
+    <div className="mx-auto max-w-6xl space-y-10 px-4 py-12 sm:px-6 lg:py-16">
       <SectionHeading
         eyebrow="Catalogue"
         title="Toutes les opportunites"

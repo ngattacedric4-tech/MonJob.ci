@@ -1,3 +1,5 @@
+import { SearchX } from "lucide-react";
+
 import type { Job } from "@/lib/db/types";
 
 import { JobCard } from "@/components/jobs/job-card";
@@ -15,9 +17,14 @@ export function JobList({
 }: JobListProps) {
   if (!jobs.length) {
     return (
-      <div className="rounded-lg border border-dashed border-ink-200 bg-white p-8 text-center">
-        <p className="text-lg font-semibold text-ink-900">{emptyTitle}</p>
-        <p className="mt-2 text-sm text-ink-500">{emptyDescription}</p>
+      <div className="rounded-2xl border border-dashed border-ink-200 bg-white/60 px-6 py-12 text-center">
+        <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-ink-100 text-ink-500">
+          <SearchX className="h-5 w-5" />
+        </div>
+        <p className="font-display text-lg font-semibold text-ink-900">{emptyTitle}</p>
+        <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-ink-500">
+          {emptyDescription}
+        </p>
       </div>
     );
   }
@@ -30,4 +37,3 @@ export function JobList({
     </div>
   );
 }
-

@@ -8,7 +8,7 @@ export const Input = forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputE
       <input
         ref={ref}
         className={cn(
-          "h-11 w-full rounded-lg border border-ink-200 bg-white px-3 text-sm text-ink-900 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20",
+          "h-11 w-full rounded-lg border border-ink-200 bg-white px-3.5 text-sm text-ink-900 placeholder:text-ink-400 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 disabled:cursor-not-allowed disabled:opacity-60",
           className,
         )}
         {...props}
@@ -16,4 +16,3 @@ export const Input = forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputE
     );
   },
 );
-

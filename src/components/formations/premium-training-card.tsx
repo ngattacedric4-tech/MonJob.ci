@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight, Sparkles } from "lucide-react";
+import { ArrowUpRight, ShieldCheck, Sparkles } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -11,20 +11,31 @@ type PremiumTrainingCardProps = {
 
 export function PremiumTrainingCard({ training }: PremiumTrainingCardProps) {
   return (
-    <Card className="h-full border-warn-100">
-      <CardContent className="flex h-full flex-col justify-between gap-5">
+    <Card className="group relative h-full overflow-hidden border-accent-100 bg-gradient-to-br from-white via-white to-accent-50/40 transition hover:shadow-elevated">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-accent-100/40 blur-2xl"
+      />
+      <CardContent className="relative flex h-full flex-col justify-between gap-5">
         <div className="space-y-4">
           <div className="flex flex-wrap items-center gap-2">
             <Badge variant="premium">
               <Sparkles className="h-3.5 w-3.5" />
               Premium Chariow
             </Badge>
-            <Badge variant="verified">Verifie</Badge>
+            <Badge variant="verified">
+              <ShieldCheck className="h-3.5 w-3.5" />
+              Verifie
+            </Badge>
           </div>
 
           <div className="space-y-2">
-            <h3 className="text-lg font-semibold text-ink-900">{training.title}</h3>
-            <p className="text-sm text-ink-500">{training.description}</p>
+            <h3 className="font-display text-lg font-semibold leading-snug text-ink-900">
+              {training.title}
+            </h3>
+            <p className="line-clamp-3 text-sm leading-relaxed text-ink-500">
+              {training.description}
+            </p>
           </div>
 
           <div className="space-y-1 text-sm">
@@ -33,18 +44,19 @@ export function PremiumTrainingCard({ training }: PremiumTrainingCardProps) {
           </div>
         </div>
 
-        <div className="flex items-center justify-between gap-3 border-t border-ink-100 pt-4">
-          <p className="text-sm text-ink-500">Source: {training.source_name}</p>
+        <div className="flex items-center justify-between gap-3 border-t border-accent-100/70 pt-4">
+          <p className="truncate text-xs uppercase tracking-wider text-ink-400">
+            Source: {training.source_name}
+          </p>
           <Link
             href={training.external_url ?? "#"}
-            className="inline-flex items-center gap-2 text-sm font-medium text-brand-600 hover:text-brand-700"
+            className="inline-flex items-center gap-1.5 rounded-full bg-ink-900 px-3 py-1.5 text-xs font-medium text-cream transition hover:bg-ink-700"
           >
             Ouvrir
-            <ArrowUpRight className="h-4 w-4" />
+            <ArrowUpRight className="h-3.5 w-3.5" />
           </Link>
         </div>
       </CardContent>
     </Card>
   );
 }
-

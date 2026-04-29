@@ -2,7 +2,7 @@ import { forwardRef, type ButtonHTMLAttributes } from "react";
 
 import { cn } from "@/lib/utils";
 
-type ButtonVariant = "primary" | "secondary" | "ghost";
+type ButtonVariant = "primary" | "secondary" | "ghost" | "dark";
 type ButtonSize = "sm" | "md" | "lg";
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -11,9 +11,10 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 };
 
 const variantStyles: Record<ButtonVariant, string> = {
-  primary: "bg-brand-500 text-white hover:bg-brand-600",
+  primary: "bg-brand-500 text-white shadow-soft hover:bg-brand-600 active:bg-brand-700",
   secondary: "bg-ink-100 text-ink-900 hover:bg-ink-200",
   ghost: "bg-transparent text-ink-700 hover:bg-ink-100",
+  dark: "bg-ink-900 text-cream hover:bg-ink-700",
 };
 
 const sizeStyles: Record<ButtonSize, string> = {
@@ -31,7 +32,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
       ref={ref}
       type={type}
       className={cn(
-        "inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/40 disabled:cursor-not-allowed disabled:opacity-50",
+        "inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/40 focus-visible:ring-offset-2 focus-visible:ring-offset-cream disabled:cursor-not-allowed disabled:opacity-50",
         variantStyles[variant],
         sizeStyles[size],
         className,
@@ -40,4 +41,3 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
     />
   );
 });
-

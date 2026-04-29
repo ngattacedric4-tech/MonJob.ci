@@ -2,13 +2,14 @@ import type { HTMLAttributes } from "react";
 
 import { cn } from "@/lib/utils";
 
-type BadgeVariant = "default" | "verified" | "premium" | "muted";
+type BadgeVariant = "default" | "verified" | "premium" | "muted" | "live";
 
 const badgeStyles: Record<BadgeVariant, string> = {
-  default: "bg-brand-50 text-brand-700",
-  verified: "bg-success-100 text-success-700",
-  premium: "bg-warn-100 text-warn-700",
-  muted: "bg-ink-100 text-ink-700",
+  default: "bg-brand-50 text-brand-700 ring-1 ring-inset ring-brand-100",
+  verified: "bg-brand-50 text-brand-700 ring-1 ring-inset ring-brand-100",
+  premium: "bg-accent-50 text-accent-700 ring-1 ring-inset ring-accent-100",
+  muted: "bg-ink-100 text-ink-700 ring-1 ring-inset ring-ink-200",
+  live: "bg-accent-50 text-accent-700 ring-1 ring-inset ring-accent-100",
 };
 
 export function Badge({
@@ -30,4 +31,3 @@ export function Badge({
     </span>
   );
 }
-
