@@ -12,14 +12,14 @@ type CategorySearchProps = {
 export function CategorySearch({ categories, selectedSector }: CategorySearchProps) {
   return (
     <div className="space-y-6">
-      <div className="flex flex-wrap gap-2">
+      <div className="-mx-1 flex flex-wrap gap-2 px-1">
         <Link
           href="/"
           className={cn(
-            "inline-flex h-10 items-center gap-1.5 rounded-full border px-4 text-sm font-medium transition",
+            "inline-flex h-10 items-center gap-1.5 rounded-full border px-4 text-sm font-semibold transition",
             !selectedSector
               ? "border-brand-500 bg-brand-500 text-white shadow-soft"
-              : "border-ink-200 bg-white text-ink-700 hover:border-ink-300 hover:bg-ink-50",
+              : "border-ink-200 bg-white text-ink-800 hover:border-ink-300 hover:bg-ink-50",
           )}
         >
           <LayoutGrid className="h-3.5 w-3.5" />
@@ -30,10 +30,10 @@ export function CategorySearch({ categories, selectedSector }: CategorySearchPro
             key={category.slug}
             href={`/?secteur=${category.slug}`}
             className={cn(
-              "inline-flex h-10 items-center rounded-full border px-4 text-sm font-medium transition",
+              "inline-flex h-10 items-center rounded-full border px-4 text-sm font-semibold transition",
               selectedSector === category.slug
                 ? "border-brand-500 bg-brand-500 text-white shadow-soft"
-                : "border-ink-200 bg-white text-ink-700 hover:border-ink-300 hover:bg-ink-50",
+                : "border-ink-200 bg-white text-ink-800 hover:border-ink-300 hover:bg-ink-50",
             )}
           >
             {category.label}
@@ -57,9 +57,9 @@ export function CategorySearch({ categories, selectedSector }: CategorySearchPro
                 <p className="font-display font-semibold text-ink-900 transition-colors group-hover:text-brand-700">
                   {category.label}
                 </p>
-                <p className="text-sm leading-relaxed text-ink-500">{category.description}</p>
+                <p className="text-sm leading-relaxed text-ink-600">{category.description}</p>
               </div>
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-ink-100 text-ink-500 transition group-hover:bg-brand-500 group-hover:text-white">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-ink-100 text-ink-700 transition group-hover:bg-brand-500 group-hover:text-white">
                 <ArrowRight className="h-3.5 w-3.5" />
               </span>
             </div>

@@ -20,7 +20,7 @@ export function SectionHeading({ eyebrow, title, description }: SectionHeadingPr
           {title}
         </h2>
         {description ? (
-          <p className="max-w-2xl text-base leading-relaxed text-ink-500 text-pretty">
+          <p className="max-w-2xl text-base leading-relaxed text-ink-600 text-pretty">
             {description}
           </p>
         ) : null}

@@ -25,32 +25,34 @@ export function PremiumTrainingCard({ training }: PremiumTrainingCardProps) {
             </Badge>
             <Badge variant="verified">
               <ShieldCheck className="h-3.5 w-3.5" />
-              Verifie
+              Vérifié
             </Badge>
           </div>
 
           <div className="space-y-2">
-            <h3 className="font-display text-lg font-semibold leading-snug text-ink-900">
+            <h3 className="font-display text-base font-semibold leading-snug text-ink-900 sm:text-lg">
               {training.title}
             </h3>
-            <p className="line-clamp-3 text-sm leading-relaxed text-ink-500">
+            <p className="line-clamp-3 text-sm leading-relaxed text-ink-600">
               {training.description}
             </p>
           </div>
 
           <div className="space-y-1 text-sm">
             <p className="font-medium text-ink-900">{training.organization_name}</p>
-            <p className="text-ink-500">{training.sector_label}</p>
+            <p className="text-ink-600">{training.sector_label}</p>
           </div>
         </div>
 
-        <div className="flex items-center justify-between gap-3 border-t border-accent-100/70 pt-4">
-          <p className="truncate text-xs uppercase tracking-wider text-ink-400">
-            Source: {training.source_name}
+        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-accent-100/70 pt-4">
+          <p className="truncate text-xs font-medium uppercase tracking-wider text-ink-500">
+            Source : {training.source_name}
           </p>
           <Link
             href={training.external_url ?? "#"}
-            className="inline-flex items-center gap-1.5 rounded-full bg-ink-900 px-3 py-1.5 text-xs font-medium text-cream transition hover:bg-ink-700"
+            target="_blank"
+            rel="noreferrer noopener"
+            className="inline-flex items-center gap-1.5 rounded-full bg-ink-900 px-3 py-1.5 text-xs font-semibold text-cream transition hover:bg-ink-700"
           >
             Ouvrir
             <ArrowUpRight className="h-3.5 w-3.5" />

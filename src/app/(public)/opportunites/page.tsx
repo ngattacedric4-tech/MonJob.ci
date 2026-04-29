@@ -18,11 +18,11 @@ export default async function OpportunitiesPage({ searchParams }: OpportunitiesP
   ]);
 
   return (
-    <div className="mx-auto max-w-6xl space-y-10 px-4 py-12 sm:px-6 lg:py-16">
+    <div className="mx-auto max-w-6xl space-y-8 px-4 py-10 sm:space-y-10 sm:px-6 sm:py-12 lg:py-16">
       <SectionHeading
         eyebrow="Catalogue"
-        title="Toutes les opportunites"
-        description="Emplois et stages charges directement depuis les sites suivis par le scraping, sans donnees fictives."
+        title="Toutes les opportunités"
+        description="Emplois et stages chargés directement depuis les sites suivis par le scraping, sans données fictives."
       />
       <CategorySearch categories={availableCategories} selectedSector={selectedSector} />
       <JobList jobs={jobs} />

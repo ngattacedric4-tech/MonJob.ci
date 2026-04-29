@@ -16,7 +16,7 @@ export function JobCard({ job }: JobCardProps) {
   return (
     <Link
       href={`/opportunites/${job.slug}`}
-      className="group block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/40 focus-visible:ring-offset-2 focus-visible:ring-offset-cream rounded-2xl"
+      className="group block h-full rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/40 focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
     >
       <Card className="relative h-full overflow-hidden hover:border-brand-200 hover:shadow-elevated group-hover:-translate-y-0.5">
         {/* Decorative corner accent */}
@@ -34,7 +34,7 @@ export function JobCard({ job }: JobCardProps) {
                 ) : (
                   <Badge variant="verified">
                     <ShieldCheck className="h-3.5 w-3.5" />
-                    Verifie
+                    Vérifié
                   </Badge>
                 )
               ) : null}
@@ -42,21 +42,21 @@ export function JobCard({ job }: JobCardProps) {
             </div>
 
             <div className="space-y-2">
-              <h3 className="font-display text-lg font-semibold leading-snug text-ink-900 transition-colors group-hover:text-brand-700">
+              <h3 className="font-display text-base font-semibold leading-snug text-ink-900 transition-colors group-hover:text-brand-700 sm:text-lg">
                 {job.title}
               </h3>
-              <p className="line-clamp-3 text-sm leading-relaxed text-ink-500">
+              <p className="line-clamp-3 text-sm leading-relaxed text-ink-600">
                 {job.description}
               </p>
             </div>
 
-            <div className="grid gap-1.5 text-sm text-ink-600">
+            <div className="grid gap-1.5 text-sm text-ink-700">
               <div className="flex items-center gap-2">
-                <MapPin className="h-4 w-4 text-ink-400" />
-                <span>{job.location_city ?? "Cote d'Ivoire"}</span>
+                <MapPin className="h-4 w-4 shrink-0 text-ink-500" />
+                <span className="truncate">{job.location_city ?? "Côte d'Ivoire"}</span>
               </div>
               <div className="flex items-center gap-2">
-                <CalendarDays className="h-4 w-4 text-ink-400" />
+                <CalendarDays className="h-4 w-4 shrink-0 text-ink-500" />
                 <span className="truncate">{job.source_name}</span>
               </div>
             </div>
@@ -65,7 +65,7 @@ export function JobCard({ job }: JobCardProps) {
           <div className="flex items-center justify-between gap-3 border-t border-ink-100 pt-4">
             <div className="min-w-0 flex-1">
               <p className="truncate text-sm font-medium text-ink-900">{job.sector_label}</p>
-              <p className="truncate text-xs text-ink-500">
+              <p className="truncate text-xs text-ink-600">
                 {job.organization_name ?? "Source externe"}
               </p>
             </div>

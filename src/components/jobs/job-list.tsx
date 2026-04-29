@@ -12,17 +12,19 @@ type JobListProps = {
 
 export function JobList({
   jobs,
-  emptyTitle = "Aucune opportunite pour ce filtre.",
-  emptyDescription = "Change de categorie ou publie une nouvelle source pour enrichir la selection.",
+  emptyTitle = "Aucune opportunité pour ce filtre.",
+  emptyDescription = "Change de catégorie ou publie une nouvelle source pour enrichir la sélection.",
 }: JobListProps) {
   if (!jobs.length) {
     return (
-      <div className="rounded-2xl border border-dashed border-ink-200 bg-white/60 px-6 py-12 text-center">
-        <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-ink-100 text-ink-500">
+      <div className="rounded-2xl border border-dashed border-ink-200 bg-white/70 px-6 py-10 text-center sm:py-12">
+        <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-ink-100 text-ink-600">
           <SearchX className="h-5 w-5" />
         </div>
-        <p className="font-display text-lg font-semibold text-ink-900">{emptyTitle}</p>
-        <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-ink-500">
+        <p className="font-display text-base font-semibold text-ink-900 sm:text-lg">
+          {emptyTitle}
+        </p>
+        <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-ink-600">
           {emptyDescription}
         </p>
       </div>
@@ -30,7 +32,7 @@ export function JobList({
   }
 
   return (
-    <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+    <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
       {jobs.map((job) => (
         <JobCard key={job.id} job={job} />
       ))}

@@ -23,9 +23,9 @@ const jakarta = Plus_Jakarta_Sans({
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "MonJob.ci - Opportunites verifiees en Cote d'Ivoire",
+  title: "MonJob.ci — Opportunités vérifiées en Côte d'Ivoire",
   description:
-    "Plateforme mobile-first d'emplois, stages et formations verifiees en Cote d'Ivoire. Flux live depuis Emploi.ci, Stage.ci, Educarriere et Novojob.",
+    "Plateforme mobile-first d'emplois, stages et formations vérifiées en Côte d'Ivoire. Flux live depuis Emploi.ci, Stage.ci, Educarrière et Novojob.",
 };
 
 export const viewport: Viewport = {
